@@ -1,0 +1,83 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Usuario {
+  id            Int       @id @default(autoincrement())
+  username      String    @unique
+  password      String
+  nombre        String
+  descripcion   String?
+  isAdmin       Boolean   @default(false)
+  token         String?
+  asignaciones  Asignacion[]
+}
+
+model Asignacion {
+  id               Int       @id @default(autoincrement())
+  fechaAsignacion  DateTime
+  fechaDevolucion  DateTime?
+  responsable      String
+  activo           Activo    @relation(fields: [activoId], references: [id])
+  activoId         Int
+  usuario          Usuario   @relation(fields: [usuarioId], references: [id])
+  usuarioId        Int
+  departamento     Departamento? @relation(fields: [departamentoId], references: [id])
+  departamentoId   Int?
+  personal         Personal?  @relation(fields: [personalId], references: [id])
+  personalId       Int?
+}
+
+model Departamento {
+  id           Int          @id @default(autoincrement())
+  nombre       String
+  personal     Personal[]
+  asignaciones Asignacion[]
+}
+
+model Personal {
+  id              Int          @id @default(autoincrement())
+  rut             String       @unique
+  nombre          String
+  apellidoMaterno String
+  apellidoPaterno String
+  departamento    Departamento @relation(fields: [departamentoId], references: [id])
+  departamentoId  Int
+  asignaciones    Asignacion[]
+}
+
+model Mantenimiento {
+  id           Int       @id @default(autoincrement())
+  fechas       DateTime
+  tipo         String
+  observacion  String
+  activo       Activo    @relation(fields: [activoId], references: [id])
+  activoId     Int
+}
+
+model Auditoria {
+  id        Int       @id @default(autoincrement())
+  fecha     DateTime
+  hallazgo  String
+  activo    Activo    @relation(fields: [activoId], references: [id])
+  activoId  Int
+}
+
+model Activo {
+  id                Int       @id @default(autoincrement())
+  tipo             String
+  marca            String
+  modelo           String
+  estado           String
+  ubicacion        String
+  numeroSerie      String    @unique // Agregamos la restricción @unique
+  fechaAdquisicion DateTime
+  asignaciones     Asignacion[]
+  mantenimientos   Mantenimiento[]
+  auditorias       Auditoria[]
+}

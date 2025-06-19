@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Personal - Sistema de Gestión</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="inicio.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Menú lateral -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="/Imagen/imagen1.jpg" alt="Logo Sanatorio Alemán" class="logo">
+            </div>
+            <nav class="sidebar-menu">
+                <a href="activos.html" class="menu-item">Activos</a>
+                <a href="personal.html" class="menu-item active">Personal</a> 
+            </nav>
+            <div class="sidebar-footer">
+                <img src="/Imagen/imagen2.jpg" alt="Acreditación" class="acreditacion">
+            </div>
+        </div>
+
+        <!-- Contenido principal -->
+        <div class="main-content">
+            <div class="top-bar">
+                <button id="logoutBtn" class="logout-btn">Cerrar Sesión</button>
+            </div>
+            <div class="content-area">
+                <div class="header-container">
+                    <h1>Gestión de Personal</h1>
+                    <button id="nuevoPersonalBtn" class="btn-primary">Nuevo Personal</button>
+                </div>
+                <div class="table-container">
+                    <table id="personalTable">
+                        <thead>
+                            <tr>
+                                <th>RUT</th>
+                                <th>Nombre</th>
+                                <th>Apellido Paterno</th>
+                                <th>Apellido Materno</th>
+                                <th>Departamento</th>
+                                <th>Activos Asignados</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="personalTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="utils.js"></script>
+    <script src="personal.js"></script>
+</body>
+</html>

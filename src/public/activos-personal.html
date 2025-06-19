@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activos Asignados - Sistema de Gestión</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="inicio.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Menú lateral -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="/Imagen/imagen1.jpg" alt="Logo Sanatorio Alemán" class="logo">
+            </div>
+            <nav class="sidebar-menu">
+                <a href="activos.html" class="menu-item">Activos</a>
+                <a href="personal.html" class="menu-item active">Personal</a>
+                </nav>
+            <div class="sidebar-footer">
+                <img src="/Imagen/imagen2.jpg" alt="Acreditación" class="acreditacion">
+            </div>
+        </div>
+        <!-- Contenido principal -->
+        <div class="main-content">
+            <div class="top-bar">
+                <button onclick="window.location.href='personal.html'" class="btn-back">Volver</button>
+                <button id="logoutBtn" class="logout-btn">Cerrar Sesión</button>
+            </div>
+            <div class="content-area">
+                <div class="header-container">
+                    <h1>Activos Asignados a <span id="nombrePersonal"></span></h1>
+                </div>
+                <div class="table-container">
+                    <table id="activosTable">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" id="selectAll" title="Seleccionar todos"></th>
+                                <th>Tipo</th>
+                                <th>Marca</th>
+                                <th>Modelo</th>
+                                <th>Estado</th>
+                                <th>Ubicación</th>
+                                <th>Número de Serie</th>
+                                <th>Fecha de Asignación</th>
+                            </tr>
+                        </thead>
+                        <tbody id="activosTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="button-container" style="margin-top: 20px;">
+                <button id="desasignarBtn" class="btn-primary" disabled>Desasignar Activos</button>
+            </div>
+        </div>
+    </div>
+    <script src="activos-personal.js"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Activos - Sistema de Gestión</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="inicio.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Menú lateral -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="/Imagen/imagen1.jpg" alt="Logo Sanatorio Alemán" class="logo">
+            </div>
+            <nav class="sidebar-menu">
+                <a href="activos.html" class="menu-item active">Activos</a>
+                <a href="personal.html" class="menu-item">Personal</a> 
+            </nav>
+            <div class="sidebar-footer">
+                <img src="/Imagen/imagen2.jpg" alt="Acreditación" class="acreditacion">
+            </div>
+        </div>
+
+        <!-- Contenido principal -->
+        <div class="main-content">
+            <div class="top-bar">
+                <button id="logoutBtn" class="logout-btn">Cerrar Sesión</button>
+            </div>
+            <div class="content-area">
+                <div class="header-container">
+                    <h1>Gestión de Activos</h1>
+                    <div class="button-container">
+                        <button id="nuevoActivoBtn" class="btn-primary">Nuevo Activo</button>
+                        <div class="action-buttons">
+                            <div class="export-container">
+                                <button id="exportarBtn" class="btn-secondary">Exportar</button>
+                                <div id="exportMenu" class="export-menu">
+                                    <button id="exportExcel" class="export-option">Excel</button>
+                                    <button id="exportPDF" class="export-option">PDF</button>
+                                </div>
+                            </div>
+                            <button id="filtroBtn" class="action-btn">Filtrar</button>
+                            <button id="eliminarFiltroBtn" class="action-btn">Eliminar Filtro</button>
+                            <button id="ordenarBtn" class="action-btn">Ordenar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table id="activosTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Tipo</th>
+                                <th>Marca</th>
+                                <th>Modelo</th>
+                                <th>Estado</th>
+                                <th>Ubicación</th>
+                                <th>N° Serie</th>
+                                <th>Fecha Adquisición</th>
+                                <th>Asignación</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="activosTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="utils.js"></script>
+    <script src="activos.js"></script>
+</body>
+</html>

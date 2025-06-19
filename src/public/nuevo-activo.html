@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo Activo - Sistema de Gestión</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="inicio.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Menú lateral -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="/Imagen/imagen1.jpg" alt="Logo Sanatorio Alemán" class="logo">
+            </div>
+            <nav class="sidebar-menu">
+                <a href="activos.html" class="menu-item active">Activos</a>
+                <a href="personal.html" class="menu-item">Personal</a> 
+            </nav>
+            <div class="sidebar-footer">
+                <img src="/Imagen/imagen2.jpg" alt="Acreditación" class="acreditacion">
+            </div>
+        </div>
+
+        <!-- Contenido principal -->
+        <div class="main-content">
+            <div class="top-bar">
+                <button id="logoutBtn" class="logout-btn">Cerrar Sesión</button>
+            </div>
+            <div class="content-area">
+                <h1>Nuevo Activo</h1>
+                <form id="nuevoActivoForm" class="form-container">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="tipo">Tipo:</label>
+                            <select id="tipo" name="tipo" required>
+                                <option value="">Seleccione un tipo</option>
+                                <option value="Notebook">Notebook</option>
+                                <option value="CPU">CPU</option>
+                                <option value="Modem USB">Modem USB</option>
+                                <option value="Televisor">Televisor</option>
+                                <option value="Monitor">Monitor</option>
+                                <option value="Proyector">Proyector</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="marca">Marca:</label>
+                            <input type="text" id="marca" name="marca" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="modelo">Modelo:</label>
+                            <input type="text" id="modelo" name="modelo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="estado">Estado:</label>
+                            <select id="estado" name="estado" required>
+                                <option value="">Seleccione un estado</option>
+                                <option value="Nuevo">Nuevo</option>
+                                <option value="Malo">Malo</option>
+                                <option value="Servicio Tecnico">Servicio Técnico</option>
+                                <option value="Asignado">Asignado</option>
+                                <option value="Baja">Baja</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row" id="personalAsignadoRow" style="display: none;">
+                        <div class="form-group">
+                            <label for="personalAsignado">Personal Asignado:</label>
+                            <select id="personalAsignado" name="personalAsignado">
+                                <option value="">Seleccione el personal</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="ubicacion">Ubicación:</label>
+                            <select id="ubicacion" name="ubicacion" required>
+                                <option value="">Seleccione una ubicación</option>
+                                <option value="Bodega Informatica">Bodega Informatica</option>
+                                <option value="Torre 120Años P1">Torre 120Años P1</option>
+                                <option value="Torre 120Años P2">Torre 120Años P2</option>
+                                <option value="Torre 120Años P3">Torre 120Años P3</option>
+                                <option value="Clinica Mujer P1">Clínica Mujer P1</option>
+                                <option value="Clinica Mujer P2">Clínica Mujer P2</option>
+                                <option value="Clinica Mujer P3">Clínica Mujer P3</option>
+                                <option value="Torre Jungue P1">Torre Jungue P1</option>
+                                <option value="Torre Jungue P2">Torre Jungue P2</option>
+                                <option value="Torre Jungue P3">Torre Jungue P3</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="numeroSerie">Número de Serie:</label>
+                            <input type="text" id="numeroSerie" name="numeroSerie" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fechaAdquisicion">Fecha de Adquisición:</label>
+                            <input type="date" id="fechaAdquisicion" name="fechaAdquisicion" required>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Guardar</button>
+                        <button type="button" onclick="window.location.href='activos.html'" class="btn-secondary">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="utils.js"></script>
+    <script src="nuevo-activo.js"></script>
+</body>
+</html>

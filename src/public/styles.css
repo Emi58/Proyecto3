@@ -1,0 +1,1341 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+}
+
+.logo {
+    height: 100%;
+    width: auto;
+    max-width: 200px;
+    object-fit: contain;
+}
+
+.login-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.login-form h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #ff3333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    max-width: 300px;
+}
+
+button:hover {
+    background-color: #cc0000;
+}
+
+.footer {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    background-color: white;
+    margin-top: auto;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.acreditacion {
+    height: 100%;
+    width: auto;
+    max-width: 300px;
+    object-fit: contain;
+}
+
+/* Estilos responsivos */
+@media screen and (max-width: 768px) {
+    .header, .footer {
+        height: 60px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header, .footer {
+        height: 50px;
+    }
+}
+
+/* Estilos para la tabla de activos */
+.table-container {
+    margin: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    max-height: calc(100vh - 250px);
+    overflow-y: auto;
+}
+
+#activosTable {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+#activosTable th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    color: #333;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+#activosTable th,
+#activosTable td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#activosTable tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Estilos para botones */
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-secondary:hover {
+    background-color: #545b62;
+}
+
+.btn-edit {
+    background-color: #ffc107;
+    color: #000;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.btn-icon {
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+.btn-icon:hover {
+    background-color: #f0f0f0;
+}
+.icon-img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.action-btn {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    padding: 8px 16px;
+    border-radius: 4px;
+    color: #212529;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    min-width: 100px;
+    transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+    background-color: #e9ecef;
+    border-color: #ced4da;
+}
+
+.action-btn:active {
+    background-color: #dee2e6;
+}
+
+/* Estilos para el menú de filtros */
+.filtro-menu {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    min-width: 220px;
+    max-width: 300px; 
+    max-height: 400px;
+    overflow-y: auto;
+    position: absolute;
+    z-index: 1000;
+}
+
+.action-btn {
+    position: relative;
+}
+.filtro-seccion {
+    margin-bottom: 12px;
+}
+
+.filtro-titulo {
+    font-weight: bold;
+    padding: 4px 0;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.filtro-opcion {
+    padding: 4px 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filtro-opcion input[type="checkbox"] {
+    margin: 0;
+}
+
+.filtro-opcion label {
+    cursor: pointer;
+    user-select: none;
+}
+
+.filtro-opcion:hover {
+    background-color: #f5f5f5;
+}
+
+/* Estilos para el formulario */
+.form-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-group input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Estilos para la sección superior */
+.top-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.top-actions h1 {
+    margin: 0;
+    color: #333;
+}
+
+/* Estilos para mensajes de error */
+.error-message {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Estilos para acciones del formulario */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .form-container {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .top-actions {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    #activosTable th,
+    #activosTable td {
+        padding: 8px 10px;
+    }
+
+    .btn-edit,
+    .btn-delete {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+}
+
+/* Estilos para el menú activo */
+.menu-item.active {
+    background-color: #f0f0f0;
+    border-left: 4px solid #007bff;
+}
+
+/* Ajustes para el contenido principal con sidebar */
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+}
+
+/* Ajustes responsive para el contenido principal */
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0;
+        padding: 10px;
+    }
+
+    .sidebar {
+        display: none;
+    }
+}
+
+/* Estilos para el formulario de nuevo activo */
+.form-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Responsive design para el formulario */
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .form-group {
+        min-width: 100%;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
+}
+
+/* Estilos para los menús desplegables */
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: white;
+    cursor: pointer;
+    appearance: none; /* Elimina el estilo predeterminado del navegador */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 1em;
+    padding-right: 35px;
+}
+
+.form-group select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+}
+
+.form-group select:hover {
+    border-color: #007bff;
+}
+
+.form-group select option {
+    padding: 10px;
+    font-size: 14px;
+}
+
+/* Estilo para la opción placeholder */
+.form-group select option[value=""] {
+    color: #666;
+}
+
+/* Asegurarse que el select tenga el mismo alto que los inputs */
+.form-group select,
+.form-group input {
+    height: 38px;
+    line-height: 1.5;
+}
+
+/* Estilos para la tabla de personal */
+#personalTable {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    margin-top: 20px;
+}
+
+#personalTable th,
+#personalTable td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap;
+}
+
+#personalTable th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    color: #333;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+#personalTable tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Estilos para los botones de acción */
+.btn-edit,
+.btn-delete {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    margin: 4px 0;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-edit {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.btn-edit:hover {
+    background-color: #ffb300;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+}
+
+/* Ajuste para la columna de acciones */
+#personalTable td:last-child {
+    min-width: 120px;
+    padding: 8px;
+}
+
+/* Ajustes para el contenedor de la tabla */
+.table-container {
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    max-height: calc(100vh - 250px);
+    overflow-y: auto;
+}
+
+/* Ajustes para el botón de nuevo personal */
+#nuevoPersonalBtn {
+    margin: 20px 0;
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#nuevoPersonalBtn:hover {
+    background-color: #218838;
+}
+
+/* Ajustes responsivos */
+@media screen and (max-width: 768px) {
+    .table-container {
+        margin: 10px;
+        max-height: calc(100vh - 200px);
+    }
+
+    #personalTable th,
+    #personalTable td {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+
+    .btn-edit,
+    .btn-delete {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}
+
+.table-container {
+    margin: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow-x: auto;
+}
+
+.content-area {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content-area h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#nuevoPersonalBtn {
+    margin-bottom: 20px;
+    background-color: #007bff;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Responsive design para el formulario */
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .form-group {
+        min-width: 100%;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
+}
+
+/* Estilos para los menús desplegables */
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: white;
+    cursor: pointer;
+    appearance: none; /* Elimina el estilo predeterminado del navegador */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 1em;
+    padding-right: 35px;
+}
+
+.form-group select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+}
+
+.form-group select:hover {
+    border-color: #007bff;
+}
+
+.form-group select option {
+    padding: 10px;
+    font-size: 14px;
+}
+
+/* Estilo para la opción placeholder */
+.form-group select option[value=""] {
+    color: #666;
+}
+
+/* Asegurarse que el select tenga el mismo alto que los inputs */
+.form-group select,
+.form-group input {
+    height: 38px;
+    line-height: 1.5;
+}
+
+/* Añadir estos estilos */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header-container h1 {
+    margin: 0;
+}
+
+#nuevoPersonalBtn {
+    margin-left: auto;
+}
+
+.table-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+
+#personalTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#personalTable th,
+#personalTable td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#personalTable th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    color: #333;
+    position: sticky;
+    top: 0;
+}
+
+#personalTable tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Estilos para los botones de acción */
+.btn-edit,
+.btn-delete {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    margin: 4px 0;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-edit {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.btn-edit:hover {
+    background-color: #ffb300;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+}
+
+/* Ajuste para la columna de acciones */
+#personalTable td:last-child {
+    min-width: 120px;
+    padding: 8px;
+}
+
+/* Ajustes para el contenedor de la tabla */
+.table-container {
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    max-height: calc(100vh - 250px);
+    overflow-y: auto;
+}
+
+/* Ajustes para el botón de nuevo personal */
+#nuevoPersonalBtn {
+    margin: 20px 0;
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#nuevoPersonalBtn:hover {
+    background-color: #218838;
+}
+
+/* Ajustes responsivos */
+@media screen and (max-width: 768px) {
+    .table-container {
+        margin: 10px;
+        max-height: calc(100vh - 200px);
+    }
+
+    #personalTable th,
+    #personalTable td {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+
+    .btn-edit,
+    .btn-delete {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}
+
+.table-container {
+    margin: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow-x: auto;
+}
+
+.content-area {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content-area h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#nuevoPersonalBtn {
+    margin-bottom: 20px;
+    background-color: #007bff;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Responsive design para el formulario */
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .form-group {
+        min-width: 100%;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
+}
+
+/* Estilos para los menús desplegables */
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: white;
+    cursor: pointer;
+    appearance: none; /* Elimina el estilo predeterminado del navegador */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 1em;
+    padding-right: 35px;
+}
+
+.form-group select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+}
+
+.form-group select:hover {
+    border-color: #007bff;
+}
+
+.form-group select option {
+    padding: 10px;
+    font-size: 14px;
+}
+
+/* Estilo para la opción placeholder */
+.form-group select option[value=""] {
+    color: #666;
+}
+
+/* Asegurarse que el select tenga el mismo alto que los inputs */
+.form-group select,
+.form-group input {
+    height: 38px;
+    line-height: 1.5;
+}
+
+/* Añadir estos estilos */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header-container h1 {
+    margin: 0;
+}
+
+#nuevoPersonalBtn {
+    margin-left: auto;
+}
+
+.table-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+
+#personalTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#personalTable th,
+#personalTable td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#personalTable th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    color: #333;
+    position: sticky;
+    top: 0;
+}
+
+#personalTable tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Estilos para los botones de acción */
+.btn-edit,
+.btn-delete {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    margin: 4px 0;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-edit {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.btn-edit:hover {
+    background-color: #ffb300;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+}
+
+/* Ajuste para la columna de acciones */
+#personalTable td:last-child {
+    min-width: 120px;
+    padding: 8px;
+}
+
+/* Ajustes para el contenedor de la tabla */
+.table-container {
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    max-height: calc(100vh - 250px);
+    overflow-y: auto;
+}
+
+/* Ajustes para el botón de nuevo personal */
+#nuevoPersonalBtn {
+    margin: 20px 0;
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#nuevoPersonalBtn:hover {
+    background-color: #218838;
+}
+
+/* Ajustes responsivos */
+@media screen and (max-width: 768px) {
+    .table-container {
+        margin: 10px;
+        max-height: calc(100vh - 200px);
+    }
+
+    #personalTable th,
+    #personalTable td {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+
+    .btn-edit,
+    .btn-delete {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}
+
+.table-container {
+    margin: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow-x: auto;
+}
+
+.content-area {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content-area h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#nuevoPersonalBtn {
+    margin-bottom: 20px;
+    background-color: #007bff;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Responsive design para el formulario */
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .form-group {
+        min-width: 100%;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
+}
+
+/* Estilos para los menús desplegables */
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: white;
+    cursor: pointer;
+    appearance: none; /* Elimina el estilo predeterminado del navegador */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 1em;
+    padding-right: 35px;
+}
+
+.form-group select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+}
+
+.form-group select:hover {
+    border-color: #007bff;
+}
+
+.form-group select option {
+    padding: 10px;
+    font-size: 14px;
+}
+
+/* Estilo para la opción placeholder */
+.form-group select option[value=""] {
+    color: #666;
+}
+
+/* Asegurarse que el select tenga el mismo alto que los inputs */
+.form-group select,
+.form-group input {
+    height: 38px;
+    line-height: 1.5;
+}
+
+.table-container {
+    overflow-x: auto;
+    max-width: 100%;
+    margin: 20px 0;
+}
+
+#activosTable {
+    width: 100%;
+    min-width: 1000px;
+    table-layout: fixed;
+}
+
+#activosTable th, #activosTable td {
+    padding: 8px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.activos-cell {
+    cursor: pointer;
+    color: #0066cc;
+    text-decoration: underline;
+}
+
+.activos-cell:hover {
+    color: #003366;
+}
+
+.btn-back {
+    padding: 8px 16px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-back:hover {
+    background-color: #5a6268;
+}
+
+.btn-icon-with-text {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #212529;
+    font-size: 14px;
+}
+
+.btn-icon-with-text:hover {
+    background-color: #e9ecef;
+}
+
+.btn-icon-with-text .icon-img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}
+
+.btn-icon-with-text span {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.export-container {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.export-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1000;
+    min-width: 120px;
+}
+
+.export-menu.show {
+    display: block;
+}
+
+.export-option {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    text-align: left;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #212529;
+    font-size: 14px;
+}
+
+.export-option:hover {
+    background-color: #f8f9fa;
+}
